@@ -12,6 +12,7 @@ import UIKit
     func imageScrollViewDidChangeOrientation(imageScrollView: ImageScrollView)
 }
 
+@objcMembers
 open class ImageScrollView: UIScrollView {
     
     @objc public enum ScaleMode: Int {
@@ -28,12 +29,12 @@ open class ImageScrollView: UIScrollView {
     
     static let kZoomInFactorFromMinWhenDoubleTap: CGFloat = 2
     
-    @objc open var imageContentMode: ScaleMode = .widthFill
-    @objc open var initialOffset: Offset = .begining
+    open var imageContentMode: ScaleMode = .widthFill
+    open var initialOffset: Offset = .begining
     
-    @objc public private(set) var zoomView: UIImageView? = nil
+    public private(set) var zoomView: UIImageView? = nil
     
-    @objc open weak var imageScrollViewDelegate: ImageScrollViewDelegate?
+    open weak var imageScrollViewDelegate: ImageScrollViewDelegate?
 
     var imageSize: CGSize = CGSize.zero
     private var pointToCenterAfterResize: CGPoint = CGPoint.zero
@@ -175,7 +176,7 @@ open class ImageScrollView: UIScrollView {
 
     // MARK: - Display image
     
-    @objc open func display(image: UIImage) {
+    open func display(image: UIImage) {
 
         if let zoomView = zoomView {
             zoomView.removeFromSuperview()
