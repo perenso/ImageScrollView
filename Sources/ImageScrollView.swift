@@ -176,7 +176,7 @@ open class ImageScrollView: UIScrollView {
 
     // MARK: - Display image
     
-    open func display(image: UIImage) {
+    open func display(image: UIImage?) {
 
         if let zoomView = zoomView {
             zoomView.removeFromSuperview()
@@ -190,7 +190,7 @@ open class ImageScrollView: UIScrollView {
         tapGesture.numberOfTapsRequired = 2
         zoomView!.addGestureRecognizer(tapGesture)
         
-        configureImageForSize(image.size)
+        configureImageForSize(image?.size ?? .zero)
     }
     
     private func configureImageForSize(_ size: CGSize) {
